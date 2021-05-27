@@ -36,6 +36,7 @@ function saveKoala(newKoala) {
   // ajax call to server to post koalas
 }
 
+
 // delete koala function
 /**
  * NOTE -- ***** need to add to click listener *****
@@ -54,3 +55,23 @@ function deleteKoala(koalaId) {
       console.log("There was an Error", error);
     });
 }
+
+// on click, generate id and call updateKoalaTransfer
+function putUpdateKoalaTranser(){
+  let id = $(this).data('id')
+  updateKoalaTranser(id)
+}
+
+function updateKoalaTransfer( koalaId ){
+  $.ajax({
+    method: 'PUT',
+    url: `/koalas/${koalaId}`
+  }).then( (response) => {
+    console.log('Koala transfer update:', response);
+    getKoalas();
+}).catch(err =>{
+    console.log('transfer was not updated');
+    alert('there was an error with updating')
+})
+}
+
