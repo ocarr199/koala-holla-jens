@@ -10,20 +10,20 @@ $(document).ready(function () {
 }); // end doc ready
 
 function setupClickListeners() {
-  $("#addButton").on("click", function () {
+  $("#addButton").on("click", saveKoala ) {
     console.log("in addButton on click");
     // get user input and put in an object
     // NOT WORKING YET :(
     // using a test object
-    let koalaToSend = {
-      name: "testName",
-      age: "testName",
-      gender: "testName",
-      readyForTransfer: "testName",
-      notes: "testName",
-    };
+    let newKoala ={
+      name: $('#nameIn').val(),
+      gender: $('#genderIn').val(),
+      age: $('#ageIn').val(),
+      readyForTransfer: $('#readyForTransferIn').val(),
+      notes: $('#notesIn').val(),
+    }
     // call saveKoala with the new obejct
-    saveKoala(koalaToSend);
+    saveKoala(newKoala);
   });
 }
 
@@ -68,13 +68,7 @@ function saveKoala(newKoala) {
   console.log("in saveKoala", newKoala);
   // ajax call to server to post koalas
   // create new koala object to post to server
-  let newKoala ={
-    name: $('#nameIn').val(),
-    gender: $('#genderIn').val(),
-    age: $('#ageIn').val(),
-    readyForTransfer: $('#readyForTransferIn').val(),
-    notes: $('#notesIn').val(),
-  }
+
   $.ajax({
     type: 'POST',
     url: '/koalas',
