@@ -1,12 +1,14 @@
 const pg = require("pg");
 
-const pool = new pg.Pool(config);
+
 
 const config = {
   database: "koala_inventory",
   host: "localhost",
   port: 5432,
 };
+
+const pool = new pg.Pool(config);
 
 pool.on("connect", () => {
   console.log("connected to postgres");
