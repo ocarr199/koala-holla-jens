@@ -67,7 +67,7 @@ function updateKoalaTransfer( koalaId ){
     url: `/koalas/${koalaId}`
   }).then( (response) => {
     console.log('Koala transfer update:', response);
-    refreshBooks();
+    getKoalas();
 }).catch(err =>{
     console.log('transfer was not updated');
     alert('there was an error with updating')
