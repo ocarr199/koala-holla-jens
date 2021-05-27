@@ -37,23 +37,24 @@ function saveKoala(newKoala) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// delete koala function
+/**
+ * NOTE -- ***** need to add to click listener *****
+ * @param {number} koalaId 
+ */
+function deleteKoala(koalaId) {
+  $.ajax({
+    method: "DELETE",
+    url: `/koalas/${koalaId}`,
+  })
+    .then((response) => {
+      console.log(`Bye, ${koalaId}`);
+      getKoalas();
+    })
+    .catch((error) => {
+      console.log("There was an Error", error);
+    });
+}
 
 // on click, generate id and call updateKoalaTransfer
 function putUpdateKoalaTranser(){
@@ -73,3 +74,4 @@ function updateKoalaTransfer( koalaId ){
     alert('there was an error with updating')
 })
 }
+
