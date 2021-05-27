@@ -1,4 +1,3 @@
-const { get } = require("../../routes/koala.router");
 
 console.log("js");
 
