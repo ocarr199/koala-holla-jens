@@ -31,7 +31,39 @@ function setupClickListeners() {
 function getKoalas() {
   console.log("in getKoalas");
   // ajax call to server to get koalas
+  $.ajax({
+    method: 'GET',
+    url: '/koalas'
+  }).then( response => {
+    // console log the response
+    console.log(response);
+    // render the koalas
+    renderKoalas();
+  }).catch( err => {
+    // console log the error
+    console.log('Error in GET', error);
+  });
 } // end getKoalas
+
+function renderKoalas() {
+  // empty the table to refresh each time
+  $('#viewKoalas').empty();
+
+  // loop through koalas to append to DOM
+  for (let i = 0; i < koalas.length; i++) {
+    let koala = koalas[i];
+    // for each koala, append a new row to the table
+    $('#viewKoalas').append(`
+      <tr>
+        <td>${koala.name}</td>
+        <td>${koala.age}</td>
+        <td>${koala.gender}</td>
+        <td>${koala.ready_to_transfer}</td>
+        <td>${koala.notes}</td>
+      </tr>
+    `);
+  }
+}
 
 function saveKoala(newKoala) {
   console.log("in saveKoala", newKoala);
@@ -56,3 +88,43 @@ function saveKoala(newKoala) {
       alert('Unable to add new koala');
     });
 }
+
+
+// delete koala function
+/**
+ * NOTE -- ***** need to add to click listener *****
+ * @param {number} koalaId 
+ */
+function deleteKoala(koalaId) {
+  $.ajax({
+    method: "DELETE",
+    url: `/koalas/${koalaId}`,
+  })
+    .then((response) => {
+      console.log(`Bye, ${koalaId}`);
+      getKoalas();
+    })
+    .catch((error) => {
+      console.log("There was an Error", error);
+    });
+}
+
+// on click, generate id and call updateKoalaTransfer
+function putUpdateKoalaTranser(){
+  let id = $(this).data('id')
+  updateKoalaTranser(id)
+}
+
+function updateKoalaTransfer( koalaId ){
+  $.ajax({
+    method: 'PUT',
+    url: `/koalas/${koalaId}`
+  }).then( (response) => {
+    console.log('Koala transfer update:', response);
+    getKoalas();
+}).catch(err =>{
+    console.log('transfer was not updated');
+    alert('there was an error with updating')
+})
+}
+

@@ -1,7 +1,5 @@
 const pg = require("pg");
 
-
-
 const config = {
   database: "koala_inventory",
   host: "localhost",
