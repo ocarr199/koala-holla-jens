@@ -43,7 +43,7 @@ function getKoalas() {
   });
 } // end getKoalas
 
-renderKoalas() {
+function renderKoalas() {
   // empty the table to refresh each time
   $('#viewKoalas').empty();
 
