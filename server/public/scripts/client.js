@@ -35,3 +35,41 @@ function saveKoala(newKoala) {
   console.log("in saveKoala", newKoala);
   // ajax call to server to post koalas
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// on click, generate id and call updateKoalaTransfer
+function putUpdateKoalaTranser(){
+  let id = $(this).data('id')
+  updateKoalaTranser(id)
+}
+
+function updateKoalaTransfer( koalaId ){
+  $.ajax({
+    method: 'PUT',
+    url: `/koalas/${koalaId}`
+  }).then( (response) => {
+    console.log('Koala transfer update:', response);
+    refreshBooks();
+}).catch(err =>{
+    console.log('transfer was not updated');
+    alert('there was an error with updating')
+})
+}
