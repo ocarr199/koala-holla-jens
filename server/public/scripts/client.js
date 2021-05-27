@@ -5,6 +5,8 @@ $(document).ready(function () {
   console.log("JQ");
   // Establish Click Listeners
   setupClickListeners();
+  // dynamic click listener for transfer update button
+  $('#viewKoalas').on('click', '.transferBtn', putUpdateKoalaTranser)
   // load existing koalas on page load
   getKoalas();
 }); // end doc ready
@@ -59,6 +61,7 @@ function renderKoalas() {
         <td>${koala.gender}</td>
         <td>${koala.ready_to_transfer}</td>
         <td>${koala.notes}</td>
+        <td><button class="transferBtn" data-id="${koala.id}">Ready for Transfer</button></td>
       </tr>
     `);
   }
