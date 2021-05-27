@@ -12,7 +12,7 @@ $(document).ready(function () {
 }); // end doc ready
 
 function setupClickListeners() {
-  $("#addButton").on("click", saveKoala ) {
+  $("#addButton").on("click", saveKoala ) 
     console.log("in addButton on click");
     // get user input and put in an object
     // NOT WORKING YET :(
@@ -25,8 +25,7 @@ function setupClickListeners() {
       notes: $('#notesIn').val(),
     }
     // call saveKoala with the new obejct
-    saveKoala(newKoala);
-  });
+    // saveKoala(newKoala);
 }
 
 function getKoalas() {
@@ -39,7 +38,7 @@ function getKoalas() {
     // console log the response
     console.log(response);
     // render the koalas
-    renderKoalas();
+    renderKoalas(response);
   }).catch( err => {
     // console log the error
     console.log('Error in GET', error);
