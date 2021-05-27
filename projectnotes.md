@@ -23,7 +23,7 @@ CREATE DATABASE.sql file
 
 - Server side
     [ ] make module folder
-    
+
             [ ] config pool.js
                 [ ] Layout of pool.js
 
@@ -49,3 +49,16 @@ CREATE DATABASE.sql file
     - Routes
         - koala.router.js file
             - [ ] "Import" const pool = require("../modules/pool")
+            - [ ] GET request
+                - [ ] what the query to DB looks like
+            - [ ] POST request
+                - [ ] Needs Sanitization
+                - [ ] what the query to DB looks like
+            - [ ] PUT request
+                - [ ] what the query to DB looks like
+                - [ ] Needs Sanitization
+            - [ ] DELETE request
+                - [ ] what the query to DB looks like
+                - [ ] Needs Sanitization
+
+
