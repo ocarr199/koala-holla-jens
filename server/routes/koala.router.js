@@ -27,6 +27,7 @@ koalaRouter.delete('/:id', (req, res) => {
     }).catch(error => {
         console.log(error);
         // Send back a 500 status error
+        res.sendStatus(500)
     })
 })
 
