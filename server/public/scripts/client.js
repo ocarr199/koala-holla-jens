@@ -12,20 +12,29 @@ $(document).ready(function () {
 }); // end doc ready
 
 function setupClickListeners() {
-  $("#addButton").on("click", saveKoala ) 
-    console.log("in addButton on click");
+  $("#addButton").on("click", handleAdd ) 
+
     // get user input and put in an object
     // NOT WORKING YET :(
     // using a test object
-    let newKoala ={
-      name: $('#nameIn').val(),
-      gender: $('#genderIn').val(),
-      age: $('#ageIn').val(),
-      readyForTransfer: $('#readyForTransferIn').val(),
-      notes: $('#notesIn').val(),
-    }
+    
     // call saveKoala with the new obejct
     // saveKoala(newKoala);
+}
+
+
+function handleAdd() {
+  console.log('clicked Submit button');
+  
+  let newKoala ={
+    name: $('#nameIn').val(),
+    gender: $('#genderIn').val(),
+    age: $('#ageIn').val(),
+    readyForTransfer: $('#readyForTransferIn').val(),
+    notes: $('#notesIn').val(),
+  }
+
+  saveKoala(newKoala)
 }
 
 function getKoalas() {
@@ -41,7 +50,7 @@ function getKoalas() {
     renderKoalas(response);
   }).catch( err => {
     // console log the error
-    console.log('Error in GET', error);
+    console.log('Error in GET', err);
   });
 } // end getKoalas
 
