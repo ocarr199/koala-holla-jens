@@ -28,9 +28,9 @@ koalaRouter.post('/',  (req, res) => {
     let newKoala = req.body;
     console.log(`Adding Koala`, newKoala);
   
-    let queryText = `INSERT INTO "koalas" ("name", "gender", "age", "ready-to-transfer", "notes")
+    let queryText = `INSERT INTO "koalas" ("name", "gender", "age", "readyToTransfer", "notes")
                      VALUES ($1, $2, $3, $4, $5);`;
-    pool.query(queryText, [newKoala.name, newKoala.gender, newKoala.age, newKoala.readyForTransfer, newKoala.notes])
+    pool.query(queryText, [newKoala.name, newKoala.gender, newKoala.age, newKoala.readyToTransfer, newKoala.notes])
       .then(result => {
         res.sendStatus(201);
       })
@@ -47,7 +47,7 @@ koalaRouter.put('/:id', (req, res) =>{
     const koalaTransferUpdate = req.params.id;
     console.log('book updated to read', koalaTransferUpdate);
     // make queryString target ready-to-transfer column and make boolean true
-    const queryString = `UPDATE "koalas" SET "ready-to-transfer"=NOT "ready-to-transfer" WHERE "koalas".id = $1;`; 
+    const queryString = `UPDATE "koalas" SET "readyToTransfer"=NOT "readyToTransfer" WHERE "koalas".id = $1;`; 
 
     pool.query(queryString, [koalaTransferUpdate])
     .then( response => {

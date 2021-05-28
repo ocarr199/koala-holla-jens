@@ -9,6 +9,7 @@ $(document).ready(function () {
   $('#viewKoalas').on('click', '.transferBtn', putUpdateKoalaTranser)
   // load existing koalas on page load
   getKoalas();
+  // renderKoalas()
 }); // end doc ready
 
 function setupClickListeners() {
@@ -30,7 +31,7 @@ function handleAdd() {
     name: $('#nameIn').val(),
     gender: $('#genderIn').val(),
     age: $('#ageIn').val(),
-    readyForTransfer: $('#readyForTransferIn').val(),
+    readyToTransfer: $('#readyForTransferIn').val(),
     notes: $('#notesIn').val(),
   }
 
@@ -54,7 +55,7 @@ function getKoalas() {
   });
 } // end getKoalas
 
-function renderKoalas() {
+function renderKoalas(koalas) {
   // empty the table to refresh each time
   $('#viewKoalas').empty();
 
@@ -67,7 +68,7 @@ function renderKoalas() {
         <td>${koala.name}</td>
         <td>${koala.age}</td>
         <td>${koala.gender}</td>
-        <td>${koala.ready_to_transfer}</td>
+        <td>${koala.readyToTransfer}</td>
         <td>${koala.notes}</td>
         <td><button class="transferBtn" data-id="${koala.id}">Ready for Transfer</button></td>
       </tr>

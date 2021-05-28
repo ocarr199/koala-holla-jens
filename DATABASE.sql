@@ -3,12 +3,12 @@ CREATE TABLE "koalas" (
 	"name" VARCHAR (80),
 	"gender" VARCHAR (1),
 	"age" INT,
-	"ready-to-transfer" boolean,
+	"readyToTransfer" boolean,
 	"notes" VARCHAR(100)
 
 );
 
-INSERT INTO "koalas"("name", "gender", "age", "ready-to-transfer", "notes") 
+INSERT INTO "koalas"("name", "gender", "age", "readyToTransfer", "notes") 
 VALUES 
 ('Scotty', 'M', '4', 'true', 'Born in Guatemala'),
 ('Jean', 'F', '5', 'true', 'Allergic to lots of lava'),
