@@ -6,7 +6,7 @@
                 [ ] name - varchar(80)
                 [ ] gender - varchar(1)
                 [ ] age - INT
-                [ ] ready-to-transfer - boolean
+                [ ] readyToTransfer - boolean
                 [ ] notes varchar(100)
 
 CREATE DATABASE.sql file
@@ -17,7 +17,7 @@ CREATE DATABASE.sql file
         - send info to server for storage
     [ ] GET
         - Render to DOM logic
-    [ ] PUT - One base, ready-to-transfer
+    [ ] PUT - One base, readyToTransfer
     [ ] DELETE - Stretch goal
 
 
