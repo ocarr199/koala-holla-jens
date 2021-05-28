@@ -6,7 +6,7 @@ $(document).ready(function () {
   // Establish Click Listeners
   setupClickListeners();
   // dynamic click listener for transfer update button
-  $('#viewKoalas').on('click', '.transferBtn', putUpdateKoalaTranser)
+  $('#viewKoalas').on('click', '.transferBtn', putUpdateKoalaTransfer)
   // load existing koalas on page load
   getKoalas();
   // renderKoalas()
@@ -116,9 +116,9 @@ function deleteKoala(koalaId) {
 }
 
 // on click, generate id and call updateKoalaTransfer
-function putUpdateKoalaTranser(){
-  let id = $(this).data('id')
-  updateKoalaTranser(id)
+function putUpdateKoalaTransfer(){
+  let id = $(this).data('id');
+  updateKoalaTransfer(id);
 }
 
 function updateKoalaTransfer( koalaId ){
