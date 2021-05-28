@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 function setupClickListeners() {
   $("#addButton").on("click", handleAdd ) 
-
+  $("#viewKoalas").on("click", ".deleteBtn", deleteHandler)
     // get user input and put in an object
     // NOT WORKING YET :(
     // using a test object
@@ -95,6 +95,10 @@ function saveKoala(newKoala) {
     });
 }
 
+function deleteHandler() {
+  console.log("clicked delete button for koalas");
+  deleteKoala($(this).data("id"))
+}
 
 // delete koala function
 /**
